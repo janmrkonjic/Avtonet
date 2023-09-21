@@ -1,13 +1,6 @@
 <?php
-// Database connection using PDO
-$dsn = "mysql:host=localhost;dbname=avtonet";
-$username = "root";
-$password = "";
-
+include("connection.php");
 try {
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     // Get user input
     $uporabnisko_ime = $_POST['uporabnisko_ime'];
     $raw_password = $_POST['geslo'];
@@ -27,6 +20,7 @@ try {
         header('Refresh:1; url=index.php');
     } else {
         echo "Login failed. Please check your username and password.";
+        header('Refresh:2; url=login.php');
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();

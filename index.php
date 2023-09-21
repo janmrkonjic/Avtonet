@@ -1,3 +1,6 @@
+<?php
+include("connection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,20 +70,23 @@
                 <li><a href="#">Trucks</a></li>
                 <li><a href="#">Caravans</a></li>
                 <li><a href="#">Accessories</a></li>
+                <li><a href="login.php" class="button">Login</a></li>
+                <li><a href="register.php" class="button">Register</a></li>
             </ul>
         </nav>
-        <h1>Welcome to avto.net Clone</h1>
+        <h1>Fake Avto.net</h1>
     </header>
-    <h1>Vehicle Search</h1>
+    <h1>Iskanje Vozil</h1>
 
 <form method="get" action="search.php">
-    <input type="text" name="search_query" placeholder="Search by model, price, age...">
-    <button type="submit">Search</button>
+    <input type="text" name="search_query" placeholder="Vpišite model, letnik, ceno...">
+    <button type="submit">Išči</button>
 </form>
 <br>
- <!-- Brand filter -->
- <select name="brand">
-            <option value="">Select Brand</option>
+
+         <!-- Brand filter -->
+         <select name="brand">
+            <option value="">Znamka</option>
             <option value="Brand1">Brand1</option>
             <option value="Brand2">Brand2</option>
             <!-- Add more brand options as needed -->
@@ -88,7 +94,7 @@
 
         <!-- Model filter -->
         <select name="model">
-            <option value="">Select Model</option>
+            <option value="">Model</option>
             <option value="Model1">Model1</option>
             <option value="Model2">Model2</option>
             <!-- Add more model options as needed -->
@@ -96,7 +102,7 @@
 
         <!-- Price filter -->
         <select name="price">
-            <option value="">Select Price Range</option>
+            <option value="">Cena</option>
             <option value="5000">$5,000 or less</option>
             <option value="10000">$10,000 or less</option>
             <!-- Add more price options as needed -->
@@ -104,7 +110,7 @@
 
         <!-- Vehicle Type filter -->
         <select name="vehicle_type">
-            <option value="">Select Vehicle Type</option>
+            <option value="">Vrsta vozila</option>
             <option value="Sedan">Sedan</option>
             <option value="SUV">SUV</option>
             <!-- Add more vehicle type options as needed -->
