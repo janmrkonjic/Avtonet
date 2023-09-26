@@ -4,7 +4,7 @@
     <title>Registration</title>
 </head>
 <body>
-    <h2>Register</h2>
+    <h2>Registracija</h2>
     <form method="post" action="register_process.php">
         <label for="uporabnisko_ime">Username:</label>
         <input type="text" name="uporabnisko_ime" required><br><br>

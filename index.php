@@ -64,14 +64,12 @@ include("connection.php");
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Cars</a></li>
-                <li><a href="#">Motorcycles</a></li>
-                <li><a href="#">Trucks</a></li>
-                <li><a href="#">Caravans</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="login.php" class="button">Login</a></li>
-                <li><a href="register.php" class="button">Register</a></li>
+                <li><a href="#">Domov</a></li>
+                <li><a href="avto.php">Avto</a></li>
+                <li><a href="moto.php">Moto</a></li>
+                <li><a href="ostalo.php">Ostalo</a></li>
+                <li><a href="login.php" class="button">Prijava</a></li>
+                <li><a href="register.php" class="button">Registracija</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
@@ -83,50 +81,73 @@ include("connection.php");
     <button type="submit">Išči</button>
 </form>
 <br>
-
          <!-- Brand filter -->
          <select name="brand">
             <option value="">Znamka</option>
-            <option value="Brand1">Brand1</option>
-            <option value="Brand2">Brand2</option>
+            <!-- Populate the options dynamically using PHP -->
+            <?php
+
+                // Query to retrieve brands from the "znamke" table
+                $query = "SELECT id, ime FROM znamke"; // Selecting id and ime columns
+                $stmt = $pdo->prepare($query);
+                $stmt->execute();
+                $brands = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($brands as $brand) {
+                    echo '<option value="' . $brand['id'] . '">' . $brand['ime'] . '</option>';
+                }
+  
+            ?>
             <!-- Add more brand options as needed -->
         </select>
 
         <!-- Model filter -->
         <select name="model">
             <option value="">Model</option>
-            <option value="Model1">Model1</option>
-            <option value="Model2">Model2</option>
-            <!-- Add more model options as needed -->
+            <?php
+
+                $query = "SELECT id, ime FROM modeli"; // Selecting id and ime columns
+                $stmt = $pdo->prepare($query);
+                $stmt->execute();
+                $models = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($models as $model) {
+                    echo '<option value="' . $model['id'] . '">' . $model['ime'] . '</option>';
+                }
+  
+            ?>
         </select>
 
         <!-- Price filter -->
         <select name="price">
             <option value="">Cena</option>
-            <option value="5000">$5,000 or less</option>
-            <option value="10000">$10,000 or less</option>
+            <option value="1000">Do 1000$</option>
+            <option value="5000">Do 5000$</option>
+            <option value="10000">Do 10000$</option>
+            <option value="20000">Do 20000$</option>
             <!-- Add more price options as needed -->
         </select>
 
         <!-- Vehicle Type filter -->
         <select name="vehicle_type">
             <option value="">Vrsta vozila</option>
-            <option value="Sedan">Sedan</option>
-            <option value="SUV">SUV</option>
+            <option value="Avtomobil">Avtomobil</option>
+            <option value="Motor">Motor</option>
+            <option value="Ostalo">Ostalo</option>
             <!-- Add more vehicle type options as needed -->
         </select>
         <br><br>
-        <button class="search" type="submit">Search</button>
+        <button class="search" type="submit">Išči</button>
     </form>
 
     
     <section class="featured-cars">
-        <h2>Featured Cars</h2>
+        <h2>Popusti</h2>
         <!-- Display featured car listings here -->
     </section>
     
     <section class="latest-news">
-        <h2>Latest News</h2>
+        <h2>Novice</h2>
         <!-- Display latest news articles here -->
     </section>
     
