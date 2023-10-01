@@ -16,10 +16,10 @@ try {
     // Verify the password
     
     if (password_verify($raw_password, $hashed_password)) {
-        echo "Login successful!";
+        echo "Prijava uspešna!";
         header('Refresh:1; url=index.php');
     } else {
-        echo "Login failed. Please check your username and password.";
+        echo "Prijava neuspešna. Preverite uporabniško ime in geslo.";
         header('Refresh:2; url=login.php');
     }
 } catch (PDOException $e) {

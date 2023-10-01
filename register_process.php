@@ -13,7 +13,7 @@ try {
     $check_stmt->execute([$uporabnisko_ime]);
 
     if ($check_stmt->rowCount() > 0) {
-        echo "Username already exists. Please choose a different username.";
+        echo "Uporabniško ime že obstaja. Uporabite drugo uporabniško ime.";
     } else {
         // Hash the password securely
         $hashed_password = password_hash($raw_password, PASSWORD_BCRYPT);
@@ -23,7 +23,7 @@ try {
         $insert_stmt = $pdo->prepare($insert_query);
         $insert_stmt->execute([$uporabnisko_ime, $email, $hashed_password]);
 
-        echo "Registration successful!";
+        echo "Registracija uspešna!";
         header('Refresh:1; url=login.php');
     }
 } catch (PDOException $e) {

@@ -10,6 +10,12 @@ include("connection.php");
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
+    body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
         /* Apply styles to the search form */
         form {
             text-align: center;
@@ -64,7 +70,7 @@ include("connection.php");
     <header>
         <nav>
             <ul>
-                <li><a href="#">Domov</a></li>
+                <li><a href="index.php">Domov</a></li>
                 <li><a href="avto.php">Avto</a></li>
                 <li><a href="moto.php">Moto</a></li>
                 <li><a href="ostalo.php">Ostalo</a></li>
@@ -121,10 +127,10 @@ include("connection.php");
         <!-- Price filter -->
         <select name="price">
             <option value="">Cena</option>
-            <option value="1000">Do 1000$</option>
-            <option value="5000">Do 5000$</option>
-            <option value="10000">Do 10000$</option>
-            <option value="20000">Do 20000$</option>
+            <option value="1000">Do 1000€</option>
+            <option value="5000">Do 5000€</option>
+            <option value="10000">Do 10000€</option>
+            <option value="20000">Do 20000€</option>
             <!-- Add more price options as needed -->
         </select>
 
@@ -152,7 +158,7 @@ include("connection.php");
     </section>
     
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> avto.net Clone</p>
+        <p>&copy; <?php echo date("Y"); ?> Fake avto.net</p>
     </footer>
 </body>
 </html>
