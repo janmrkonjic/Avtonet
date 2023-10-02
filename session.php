@@ -1,12 +1,30 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user_id'])
-        && $_SERVER['REQUEST_URI']!='/etrznica/login.php'
-        && $_SERVER['REQUEST_URI']!='/etrznica/registration.php'
-        && $_SERVER['REQUEST_URI']!='/etrznica/login_check.php') {
+function check_login($pdo)
+{
+
+    if(isset($_SESSION['user_id']))
+    {
+
+        $id = $_SESSION['user_id'];
+
+        $query = "SELECT * FROM uporabniki WHERE id = ?";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$id]);
+        $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($user_data)
+        {
+            return $user_data;
+        }
+    }
+
+
+
+    //redirect to login
     header("Location: login.php");
-    die();
+    die;
+
 }
 
 function isAdmin() {

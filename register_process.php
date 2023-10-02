@@ -1,5 +1,11 @@
 <?php
 include("connection.php");
+include("session.php");
+if(isset($_SESSION['user_id']))
+{
+    header("Location: index.php");
+    die;
+}
 
 try {
     // Get user input
@@ -24,6 +30,8 @@ try {
         $insert_stmt->execute([$uporabnisko_ime, $email, $hashed_password]);
 
         echo "Registracija uspešna!";
+
+        $_SESSION['user_id'] = $pdo->lastInsertId();
         header('Refresh:1; url=login.php');
     }
 } catch (PDOException $e) {

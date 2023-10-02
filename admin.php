@@ -1,3 +1,8 @@
+<?php
+include("connection.php");
+include("session.php");
+adminOnly();
+?>
 <!DOCTYPE html>
 <html>
 <head>

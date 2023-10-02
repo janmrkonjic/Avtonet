@@ -53,6 +53,7 @@ include("connection.php");
                 <li><a href="ostalo.php">Ostalo</a></li>
                 <li><a href="login.php" class="button">Prijava</a></li>
                 <li><a href="register.php" class="button">Registracija</a></li>
+                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
             </ul>
         </nav>
         <h1>Oglasi</h1>

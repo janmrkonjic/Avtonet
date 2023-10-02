@@ -1,5 +1,7 @@
 <?php
 include("connection.php");
+include('session.php'); 
+$user = check_login($pdo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +35,7 @@ include("connection.php");
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            width: 93.5%;
         }
 
         /* Style the search button */
@@ -61,6 +64,15 @@ include("connection.php");
             font-size: 16px;
             margin-top: 10px;
         }
+        input {
+            margin-left: 10px;
+            width: 93.5%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
 
         .search {
             margin-left:10px;
@@ -81,16 +93,12 @@ include("connection.php");
         </nav>
         <h1>Fake Avto.net</h1>
     </header>
-    <h1>Iskanje Vozil</h1>
-
-<form method="get" action="search.php">
-    <input type="text" name="search_query" placeholder="Vpišite model, letnik, ceno...">
-    <button type="submit">Išči</button>
+    <h1>Objavi Oglas</h1>
 </form>
-<br>
-<form method="get" action="search.php">
+
+<form method="post" action="oglas_proccess.php" enctype="multipart/form-data">
          <!-- Brand filter -->
-         <select name="brand" id="brand">
+         <select name="znamka">
             <option value="">Znamka</option>
             <!-- Populate the options dynamically using PHP -->
             <?php
@@ -110,79 +118,54 @@ include("connection.php");
         </select>
 
         <!-- Model filter -->
-        <select name="model" id="model">
+        <select name="model">
             <option value="">Model</option>
             <?php
 
-                $query = "SELECT id, ime, znamka_id FROM modeli"; // Selecting id and ime columns
+                $query = "SELECT id, ime FROM modeli"; // Selecting id and ime columns
                 $stmt = $pdo->prepare($query);
                 $stmt->execute();
                 $models = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($models as $model) {
-                    echo '<option data-znamka="' . $model['znamka_id'] . '" value="' . $model['id'] . '">' . $model['ime'] . '</option>';
+                    echo '<option value="' . $model['id'] . '">' . $model['ime'] . '</option>';
                 }
-
+  
             ?>
         </select>
 
-        <script>
-            const znamka_select = document.getElementById("brand")
-            const model_select = document.getElementById("model")
-            znamka_select.addEventListener("change", function(e) {
-                model_select.value = ""
-                const options = model_select.querySelectorAll("option")
-                const toShow = znamka_select.value
-                options.forEach(function(option){
-                    if(option.dataset.znamka == toShow)
-                    {
-                        option.style.display = "block"
-                    }
-                    else
-                    {
-                        option.style.display = "none"
-                    }
-                })
 
-            })
-
-        </script>
-
-        <!-- Price filter -->
-        <select name="price">
-            <option value="">Cena</option>
-            <option value="1000">Do 1000€</option>
-            <option value="5000">Do 5000€</option>
-            <option value="10000">Do 10000€</option>
-            <option value="20000">Do 20000€</option>
-            <!-- Add more price options as needed -->
+        <select name="gorivo">
+            <option value="">Gorivo</option>
+            <option value="Bencin">Bencin</option>
+            <option value="Diesel">Diesel</option>
+            <option value="E-pogon">E-pogon</option>
         </select>
 
-        <!-- Vehicle Type filter -->
-        <select name="vehicle_type">
-            <option value="">Vrsta vozila</option>
-            <option value="Avtomobil">Avtomobil</option>
-            <option value="Motor">Motor</option>
-            <option value="Ostalo">Ostalo</option>
-            <!-- Add more vehicle type options as needed -->
+        <select name="barva">
+            <option value="">Barva</option>
+            <option value="Bela">Bela</option>
+            <option value="Črna">Črna</option>
+            <option value="Srebrna">Srebrna</option>
+            <option value="Modra">Modra</option>
+            <option value="Siva">Siva</option>
+            <option value="Rumena">Rumena</option>
+            <option value="Rdeča">Rdeča</option>
+            <option value="Zelena">Zelena</option>
+            <option value="Roza">Roza</option>
+            <option value="Vijolična">Vijolična</option>
         </select>
+
+        <input type="text" name="cena" placeholder="Cena">
+        <br>
+        <input type="text" name="km" placeholder="Prevoženi km">
+        <br>
+        <input type="text" name="letnik" placeholder="Letnik">
+        <br>
+        <input type="file" id="image">
         <br><br>
-        <button class="search" type="submit">Išči</button>
+        <button class="search" name="submit" type="submit">Objavi</button>
     </form>
 
-    
-    <section class="featured-cars">
-        <h2>Popusti</h2>
-        <!-- Display featured car listings here -->
-    </section>
-    
-    <section class="latest-news">
-        <h2>Novice</h2>
-        <!-- Display latest news articles here -->
-    </section>
-    
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Fake avto.net</p>
-    </footer>
 </body>
 </html>

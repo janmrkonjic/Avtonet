@@ -1,12 +1,18 @@
 <?php
 include("connection.php");
+include("session.php");
+if(isset($_SESSION['user_id']))
+{
+    header("Location: index.php");
+    die;
+}
 try {
     // Get user input
     $uporabnisko_ime = $_POST['uporabnisko_ime'];
     $raw_password = $_POST['geslo'];
 
     // Retrieve the hashed password from the database
-    $query = "SELECT geslo FROM uporabniki WHERE uporabnisko_ime = ?";
+    $query = "SELECT geslo, id FROM uporabniki WHERE uporabnisko_ime = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$uporabnisko_ime]);
 
@@ -17,6 +23,7 @@ try {
     
     if (password_verify($raw_password, $hashed_password)) {
         echo "Prijava uspešna!";
+        $_SESSION['user_id'] = $row['id'];
         header('Refresh:1; url=index.php');
     } else {
         echo "Prijava neuspešna. Preverite uporabniško ime in geslo.";
