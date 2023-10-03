@@ -73,20 +73,17 @@ a {
     color: #007bff;
 }
 
-
-
 </style>
 <body>
 <header>
         <nav>
             <ul>
                 <li><a href="index.php">Domov</a></li>
-                <li><a href="avto.php">Avto</a></li>
-                <li><a href="moto.php">Moto</a></li>
-                <li><a href="ostalo.php">Ostalo</a></li>
+                <li><a href="oglasi.php">Oglasi</a></li>
                 <li><a href="login.php" class="button">Prijava</a></li>
                 <li><a href="register.php" class="button">Registracija</a></li>
                 <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
+                <li><a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>

@@ -48,12 +48,11 @@ include("connection.php");
         <nav>
             <ul>
                 <li><a href="index.php">Domov</a></li>
-                <li><a href="avto.php">Avto</a></li>
-                <li><a href="moto.php">Moto</a></li>
-                <li><a href="ostalo.php">Ostalo</a></li>
+                <li><a href="oglasi.php">Oglasi</a></li>
                 <li><a href="login.php" class="button">Prijava</a></li>
                 <li><a href="register.php" class="button">Registracija</a></li>
                 <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
+                <li><a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Oglasi</h1>
@@ -63,7 +62,7 @@ include("connection.php");
         <table>
             <th colspan="2">Znamka model</th>
             <tr>
-            <td><img src="images/avto.png"></td>
+            <td><a href="oglas.php"><img src="images/avto.png"></td></a>
             <td>
             Letnik: <br>
             Prevoženih: <br>
@@ -78,7 +77,7 @@ include("connection.php");
         <table>
             <th colspan="2">Znamka model</th>
             <tr>
-            <td><img src="images/avto.png"></td>
+            <td><a href="oglas.php"><img src="images/avto.png"></td></a>
             <td>
             Letnik: <br>
             Prevoženih: <br>
@@ -93,7 +92,7 @@ include("connection.php");
         <table>
             <th colspan="2">Znamka model</th>
             <tr>
-            <td><img src="images/avto.png"></td>
+            <td><a href="oglas.php"><img src="images/avto.png"></td></a>
             <td>
             Letnik: <br>
             Prevoženih: <br>

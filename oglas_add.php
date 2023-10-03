@@ -83,12 +83,11 @@ $user = check_login($pdo);
         <nav>
             <ul>
                 <li><a href="index.php">Domov</a></li>
-                <li><a href="avto.php">Avto</a></li>
-                <li><a href="moto.php">Moto</a></li>
-                <li><a href="ostalo.php">Ostalo</a></li>
+                <li><a href="oglasi.php">Oglasi</a></li>
                 <li><a href="login.php" class="button">Prijava</a></li>
                 <li><a href="register.php" class="button">Registracija</a></li>
                 <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
+                <li><a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
@@ -98,7 +97,7 @@ $user = check_login($pdo);
 
 <form method="post" action="oglas_proccess.php" enctype="multipart/form-data">
          <!-- Brand filter -->
-         <select name="znamka">
+         <select name="znamka" id="brand">
             <option value="">Znamka</option>
             <!-- Populate the options dynamically using PHP -->
             <?php
@@ -118,21 +117,43 @@ $user = check_login($pdo);
         </select>
 
         <!-- Model filter -->
-        <select name="model">
+        <select name="model" id="model">
             <option value="">Model</option>
             <?php
 
-                $query = "SELECT id, ime FROM modeli"; // Selecting id and ime columns
+                $query = "SELECT id, ime, znamka_id FROM modeli"; // Selecting id and ime columns
                 $stmt = $pdo->prepare($query);
                 $stmt->execute();
                 $models = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($models as $model) {
-                    echo '<option value="' . $model['id'] . '">' . $model['ime'] . '</option>';
+                    echo '<option data-znamka="' . $model['znamka_id'] . '" value="' . $model['id'] . '">' . $model['ime'] . '</option>';
                 }
-  
+
             ?>
         </select>
+
+        <script>
+            const znamka_select = document.getElementById("brand")
+            const model_select = document.getElementById("model")
+            znamka_select.addEventListener("change", function(e) {
+                model_select.value = ""
+                const options = model_select.querySelectorAll("option")
+                const toShow = znamka_select.value
+                options.forEach(function(option){
+                    if(option.dataset.znamka == toShow)
+                    {
+                        option.style.display = "block"
+                    }
+                    else
+                    {
+                        option.style.display = "none"
+                    }
+                })
+
+            })
+
+        </script>
 
 
         <select name="gorivo">

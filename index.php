@@ -71,12 +71,11 @@ include("connection.php");
         <nav>
             <ul>
                 <li><a href="index.php">Domov</a></li>
-                <li><a href="avto.php">Avto</a></li>
-                <li><a href="moto.php">Moto</a></li>
-                <li><a href="ostalo.php">Ostalo</a></li>
+                <li><a href="oglasi.php">Oglasi</a></li>
                 <li><a href="login.php" class="button">Prijava</a></li>
                 <li><a href="register.php" class="button">Registracija</a></li>
                 <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
+                <li><a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
@@ -90,7 +89,7 @@ include("connection.php");
 <br>
 <form method="get" action="search.php">
          <!-- Brand filter -->
-         <select name="brand" id="brand">
+         <select name="znamka" id="brand">
             <option value="">Znamka</option>
             <!-- Populate the options dynamically using PHP -->
             <?php
@@ -149,7 +148,7 @@ include("connection.php");
         </script>
 
         <!-- Price filter -->
-        <select name="price">
+        <select name="cena">
             <option value="">Cena</option>
             <option value="1000">Do 1000€</option>
             <option value="5000">Do 5000€</option>
@@ -159,7 +158,7 @@ include("connection.php");
         </select>
 
         <!-- Vehicle Type filter -->
-        <select name="vehicle_type">
+        <select name="vrsta_vozila">
             <option value="">Vrsta vozila</option>
             <option value="Avtomobil">Avtomobil</option>
             <option value="Motor">Motor</option>
@@ -169,18 +168,7 @@ include("connection.php");
         <br><br>
         <button class="search" type="submit">Išči</button>
     </form>
-
-    
-    <section class="featured-cars">
-        <h2>Popusti</h2>
-        <!-- Display featured car listings here -->
-    </section>
-    
-    <section class="latest-news">
-        <h2>Novice</h2>
-        <!-- Display latest news articles here -->
-    </section>
-    
+    <br><br>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Fake avto.net</p>
     </footer>
