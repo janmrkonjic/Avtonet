@@ -83,7 +83,8 @@ include("connection.php");
     <h1>Iskanje Vozil</h1>
 
 <form method="get" action="search.php">
-    <input type="text" name="search_query" placeholder="Vpišite model, letnik, ceno...">
+    <input type="text" name="search" placeholder="Vpišite model, letnik, ceno... " 
+    value="<?php if(isset($_GET['search'])) {echo $_GET['search'];} ?>">
     <button type="submit">Išči</button>
 </form>
 <br>

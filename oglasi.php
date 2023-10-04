@@ -58,11 +58,11 @@ include("connection.php");
         <h1>Oglasi</h1>
     </header>
 <br>
-    <div class="oglas">
+<div class="oglas">
         <table>
             <th colspan="2">Znamka model</th>
             <tr>
-            <td><a href="oglas.php"><img src="images/avto.png"></td></a>
+            <td><img src="images/avto.png"></td>
             <td>
             Letnik: <br>
             Prevoženih: <br>
@@ -77,7 +77,7 @@ include("connection.php");
         <table>
             <th colspan="2">Znamka model</th>
             <tr>
-            <td><a href="oglas.php"><img src="images/avto.png"></td></a>
+            <td><img src="images/avto.png"></td>
             <td>
             Letnik: <br>
             Prevoženih: <br>
@@ -92,7 +92,7 @@ include("connection.php");
         <table>
             <th colspan="2">Znamka model</th>
             <tr>
-            <td><a href="oglas.php"><img src="images/avto.png"></td></a>
+            <td><img src="images/avto.png"></td>
             <td>
             Letnik: <br>
             Prevoženih: <br>

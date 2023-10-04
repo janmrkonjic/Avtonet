@@ -183,10 +183,11 @@ $user = check_login($pdo);
         <br>
         <input type="text" name="letnik" placeholder="Letnik">
         <br>
-        <input type="file" id="image">
+        <input type="file" id="image" name="slika">
         <br><br>
-        <button class="search" name="submit" type="submit">Objavi</button>
+        <button name="submit" type="submit">Objavi</button>
     </form>
+    <br><br>
 
 </body>
 </html>
