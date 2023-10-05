@@ -182,8 +182,8 @@ $user = check_login($pdo);
         <input type="text" name="km" placeholder="Prevoženi km">
         <br>
         <input type="text" name="letnik" placeholder="Letnik">
-        <br>
-        <input type="file" id="image" name="slika">
+        <input type="file" id="image" name="slika"><br>
+        Največja velikost slike: 2MB &nbsp;&nbsp;&nbsp;&nbsp; Dovoljene slike: jpg, jpeg, png
         <br><br>
         <button name="submit" type="submit">Objavi</button>
     </form>

@@ -32,15 +32,15 @@ include("connection.php");
 
 
     th {
-            background-color: black;
+            background-color: #454545;
             color: white;
             text-align: center;
             font-size: 20px;
         }
     
         img {
-        max-height:350px;
-        max-width: 370px;
+        height:250px;
+        width: 400px;
     }
 </style>
 <body>
@@ -58,50 +58,62 @@ include("connection.php");
         <h1>Oglasi</h1>
     </header>
 <br>
+                <?php 
+                $query = "SELECT * FROM oglasi";
+                $stmt = $pdo->prepare($query);
+                $stmt->execute();
+                $oglasi = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($oglasi as $oglas)
+            {
+                
+            
+            ?>
 <div class="oglas">
         <table>
-            <th colspan="2">Znamka model</th>
+        <?php 
+            $query2 = "SELECT ime, znamka_id FROM modeli WHERE id = ?";
+            $stmt = $pdo->prepare($query2);
+            $stmt->execute([$oglas['model_id']]);
+            $model = $stmt->fetch();
+            
+            $query3 = "SELECT ime FROM znamke WHERE id = ?";
+            $stmt = $pdo->prepare($query3);
+            $stmt->execute([$model['znamka_id']]);
+            $znamka = $stmt->fetch();
+
+             ?>
+            <th colspan="2">
+            <?php echo $znamka['ime'] ." " . $model['ime']; ?>
+            </th>  
+            <?php 
+            $query1 = "SELECT slika_url FROM slike WHERE id = ?";
+            $stmt = $pdo->prepare($query1);
+            $stmt->execute([$oglas['slika_id']]);
+            $slika = $stmt->fetch();
+             ?>
             <tr>
-            <td><img src="images/avto.png"></td>
+            <td><img src="images/<?php echo $slika['slika_url']; ?>"></td>
             <td>
-            Letnik: <br>
-            Prevoženih: <br>
-            Gorivo: <br>
-            Cena: <br>
+            Letnik: <?php echo $oglas['letnik'] ?><br>
+            Prevoženih: <?php echo $oglas['km'] . " km" ?><br>
+            <?php 
+            $query4 = "SELECT ime FROM goriva WHERE id = ?";
+            $stmt = $pdo->prepare($query4);
+            $stmt->execute([$oglas['gorivo_id']]);
+            $gorivo = $stmt->fetch();
+             ?>
+            Gorivo: <?php echo $gorivo['ime'] ?><br>
+            Cena: <?php echo $oglas['cena'] . " €" ?><br>
             </td>
             </tr>
+
         </table>
     </div>
     <br><br>
-    <div class="oglas">
-        <table>
-            <th colspan="2">Znamka model</th>
-            <tr>
-            <td><img src="images/avto.png"></td>
-            <td>
-            Letnik: <br>
-            Prevoženih: <br>
-            Gorivo: <br>
-            Cena: <br>
-            </td>
-            </tr>
-        </table>
-    </div>
-    <br><br>
-    <div class="oglas">
-        <table>
-            <th colspan="2">Znamka model</th>
-            <tr>
-            <td><img src="images/avto.png"></td>
-            <td>
-            Letnik: <br>
-            Prevoženih: <br>
-            Gorivo: <br>
-            Cena: <br>
-            </td>
-            </tr>
-        </table>
-    </div>
+    <?php
+            }
+            ?>
     <br>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Fake avto.net</p>
