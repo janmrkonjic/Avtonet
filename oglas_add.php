@@ -177,6 +177,7 @@ $user = check_login($pdo);
             <option value="Vijolična">Vijolična</option>
         </select>
 
+
         <input type="text" name="cena" placeholder="Cena">
         <br>
         <input type="text" name="km" placeholder="Prevoženi km">

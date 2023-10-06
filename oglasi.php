@@ -93,7 +93,10 @@ include("connection.php");
             $slika = $stmt->fetch();
              ?>
             <tr>
-            <td><img src="images/<?php echo $slika['slika_url']; ?>"></td>
+            <td>
+            <a href="oglas.php?id=<?php echo $oglas['id']; ?>">
+                <img src="images/<?php echo $slika['slika_url']; ?>">
+            </td>
             <td>
             Letnik: <?php echo $oglas['letnik'] ?><br>
             Prevoženih: <?php echo $oglas['km'] . " km" ?><br>

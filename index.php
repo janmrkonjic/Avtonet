@@ -82,10 +82,10 @@ include("connection.php");
     </header>
     <h1>Iskanje Vozil</h1>
 
-<form method="get" action="search.php">
+<form method="post" action="search.php">
     <input type="text" name="search" placeholder="Vpišite model, letnik, ceno... " 
     value="<?php if(isset($_GET['search'])) {echo $_GET['search'];} ?>">
-    <button type="submit">Išči</button>
+    <button type="submit" name="submit">Išči</button>
 </form>
 <br>
 <form method="get" action="search.php">
