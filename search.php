@@ -156,10 +156,16 @@ WHERE 1=1";
                             <a href="oglas.php?id=<?php echo $id; ?>">
                                 <img src="images/<?php echo $slika_url; ?>">
                         </td>
+
+                        <?php 
+                                    $query4 = "SELECT ime FROM goriva WHERE id = ?";
+                                    $stmt = $pdo->prepare($query4);
+                                    $stmt->execute([$gorivo_id]);
+                                    $gorivo = $stmt->fetch();?>
                         <td>
                             Letnik: <?php echo $letnik ?><br>
                             Prevoženih: <?php echo $km . " km" ?><br>
-                            Gorivo: <?php echo $gorivo_id ?><br>
+                            Gorivo: <?php echo $gorivo['ime'] ?><br>
                             Cena: <?php echo $cena . " €"?><br>
                         </td>
                     </tr>
