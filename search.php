@@ -44,6 +44,16 @@ include("connection.php");
         max-height: 350px;
         max-width: 370px;
     }
+
+    @media screen and (max-width: 600px) {
+        .oglas {
+            width: 90%;
+        }
+        img {
+            height: 150px;
+            width: 200px;
+        }
+    }
 </style>
 
 <body>
