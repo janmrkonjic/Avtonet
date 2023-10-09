@@ -31,8 +31,8 @@ include("connection.php");
 
 
         .main {
-            padding-left: 200px;
-        }
+            margin: 0 auto;
+                }
 
         .osnovni_podatki {
             text-align: center;
@@ -82,6 +82,42 @@ include("connection.php");
             float: right;
             margin-bottom: 50px;
             margin-right: 300px;
+        }
+
+        @media screen and (max-width = 600px)
+        {
+            input[type="text"] {
+                width: 50%;
+            }
+            select {
+                width: 90%;
+            }
+            .container {
+                width: 80%;
+            }
+            .okvir {
+                width: 90%;
+
+            }
+            .main {
+                padding-left: 0px;
+                margin: 0 auto;
+            }
+            .main img {
+                height: 50px;
+                width: 100px;
+            }
+            .cena {
+                font-size: 20px;
+            }
+            .tabela {
+                padding-left: 0px;
+                padding-top: 0px;
+            }
+            .podatki {
+                margin: 0 auto;
+                width: 90%;
+            }
         }
 
     </style>

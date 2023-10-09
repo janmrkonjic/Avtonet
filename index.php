@@ -29,7 +29,7 @@ include("connection.php");
         /* Style the input field */
         input[type="text"] {
             padding: 10px;
-            width: 1250px;
+            width: 95%;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
@@ -65,6 +65,19 @@ include("connection.php");
         .search {
             margin-left:10px;
         }
+
+        @media screen and (max-width = 600px)
+        {
+            input[type="text"] {
+                width: 50%;
+            }
+            select {
+                width: 100%;
+            }
+            .container {
+                width: 90%;
+            }
+        }
     </style>
 <body>
     <header>
@@ -82,10 +95,11 @@ include("connection.php");
     </header>
     <h1>Iskanje Vozil</h1>
 <br>
+<div class="container">
 <form method="get" action="search.php">
 
 <input type="text" name="search" placeholder="Vpišite model, letnik, ceno... " 
-    value="<?php if(isset($_GET['search'])) {echo $_GET['search'];} ?>">
+    value="<?php if(isset($_GET['search'])) {echo $_GET['search'];} ?>"><br><br>
     <button type="submit" name="submit">Išči</button>
          <!-- Brand filter -->
          <select name="znamka" id="brand">
@@ -167,6 +181,7 @@ include("connection.php");
         <br><br>
         <button class="search" type="submit">Išči</button>
     </form>
+    </div>
     <br><br>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Fake avto.net</p>

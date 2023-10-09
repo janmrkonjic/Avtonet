@@ -9,14 +9,14 @@ adminOnly($pdo);
 $query = "SELECT * FROM uporabniki;";
 $stmt = $pdo->prepare($query);
 $stmt->execute();
-$uporabnik = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$uporabniki = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
     <style>
         body, html
@@ -63,14 +63,13 @@ $uporabnik = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <th>Akcije</th>
     </tr>
     <?php
-    while ($uporabnik = $stmt->fetch()) {
+    foreach ($uporabniki as $uporabnik) {
         ?>
         <tr>
             <td><?= $uporabnik['id'] ?></td>
             <td><?= $uporabnik['uporabnisko_ime'] ?></td>
             <td><?= $uporabnik['admin'] ? 'Da' : 'Ne' ?></td>
-            <td><a href='update_user.php?uporabnik_id=<?= $uporabnik['id'] ?>'>Posodobi</a>
-            <a href='delete_user.php?uporabnik_id=<?= $uporabnik['id'] ?>'>Izbriši</a></td>
+            <td><a href='delete_user.php?id=<?= $uporabnik['id'] ?>'>Izbriši</a></td>
         </tr>
         <?php
     }

@@ -28,13 +28,6 @@ nav ul li a {
     color: #fff;
 }
 
-/* Styling for the sections */
-.featured-cars, .latest-news {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
 
 /* Basic styling for the footer */
 footer {
@@ -43,3 +36,21 @@ footer {
     background-color: #333;
     color: #fff;
 }
+
+@media (min-width: 600px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+    nav ul {
+        padding: 0;
+    }
+    header {
+        width: 100%;
+        }
+}
+
+

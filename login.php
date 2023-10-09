@@ -10,6 +10,7 @@ if(isset($_SESSION['user_id']))
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -74,7 +75,19 @@ a {
     color: #007bff;
 }
 
+@media screen and (max-width = 600px)
+{
+    input[type="text"] {
+        width: 50%;
+    }
+    select {
+        width: 100%;
+    }
+    .content {
+        width: 300px;
+    }
 
+}
 
 </style>
 <body>
@@ -91,7 +104,7 @@ a {
         </nav>
         <h1>Fake Avto.net</h1>
     </header>
-    <div class="content"><br><br><br><br><br><br>
+    <div class="content"><br><br><br><br><br><br><br><br>
 
     <h2>Prijava</h2>
     <form method="post" action="login_process.php">
@@ -111,7 +124,7 @@ a {
     <hr>
 </div>
     <br>
-    <a href="register.php">Registracija tukaj</a>
+    <a href="register.php">Registracija tukaj</a><br><br>
     </div>
     <br>
 </body>
