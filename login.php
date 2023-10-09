@@ -1,4 +1,5 @@
 <?php
+include_once("auth.php");
 include("session.php");
 if(isset($_SESSION['user_id']))
 {
@@ -90,17 +91,25 @@ a {
         </nav>
         <h1>Fake Avto.net</h1>
     </header>
-    <div class="content"><br>
+    <div class="content"><br><br><br><br><br><br>
+
     <h2>Prijava</h2>
     <form method="post" action="login_process.php">
+    <div class="g_id_signin" data-type="standard"></div>
         <label for="uporabnisko_ime">Uporabnisko ime:</label>
         <input type="text" name="uporabnisko_ime" required><br><br>
-
         <label for="geslo">Geslo:</label>
         <input type="password" name="geslo" required><br><br>
 
         <input class="btn" type="submit" value="Prijava">
     </form>
+<br>
+    <div style="text-align:center;">
+    <a href="<?= Auth::get_google_login_url() ?>" class="btn">Google login</a><br><br>
+    <a href="<?= Auth::get_facebook_login_url() ?>" class="btn">Facebook login</a><br>
+    <hr>Še nimate računa?
+    <hr>
+</div>
     <br>
     <a href="register.php">Registracija tukaj</a>
     </div>

@@ -81,14 +81,12 @@ include("connection.php");
         <h1>Fake Avto.net</h1>
     </header>
     <h1>Iskanje Vozil</h1>
-
-<form method="post" action="search.php">
-    <input type="text" name="search" placeholder="Vpišite model, letnik, ceno... " 
-    value="<?php if(isset($_GET['search'])) {echo $_GET['search'];} ?>">
-    <button type="submit" name="submit">Išči</button>
-</form>
 <br>
 <form method="get" action="search.php">
+
+<input type="text" name="search" placeholder="Vpišite model, letnik, ceno... " 
+    value="<?php if(isset($_GET['search'])) {echo $_GET['search'];} ?>">
+    <button type="submit" name="submit">Išči</button>
          <!-- Brand filter -->
          <select name="znamka" id="brand">
             <option value="">Znamka</option>
@@ -152,9 +150,9 @@ include("connection.php");
         <select name="cena">
             <option value="">Cena</option>
             <option value="1000">Do 1000€</option>
-            <option value="5000">Do 5000€</option>
             <option value="10000">Do 10000€</option>
             <option value="20000">Do 20000€</option>
+            <option value="50000">Do 50000€</option>
             <!-- Add more price options as needed -->
         </select>
 
