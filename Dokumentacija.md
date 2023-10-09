@@ -33,8 +33,10 @@ In še knjižnica za Facebook Login:
 composer require facebook/graph-sdk --ignore-platform-reqs
 ```
 
-Pred tem sem si še moral ustvariti račun na spletni strani Google Cloud in na spletni strani Meta for Developers
+Pred tem sem si še moral ustvariti račun na spletni strani Google Cloud in na spletni strani Meta for Developers.
+
 Google Cloud: https://cloud.google.com/
+
 Meta for Developers: https://developers.facebook.com/
 
 Delo sem začel z E-r diagramom, v katerem sem naredil vse tabele, ki bodo v bazi in jih med seboj pravilno povezal.
@@ -56,6 +58,28 @@ Na koncu sta me čakala samo še Google in Facebook login, ki sem ju z nekaj te�
 Na začetku lahko na moji spletni strani iščeš oglase tudi brez prijave. Lahko vidiš vse oglase ali pa jih ročno iščeš.
 
 <img width="943" alt="image" src="https://github.com/janmrkonjic/Avtonet/assets/130756503/2c0a5da2-3e50-46d0-9807-20153ad2aec8">
+
+Del kode za iskanje s pomočjo select inputa:
+
+```
+         <!-- Brand filter -->
+         <select name="znamka" id="brand">
+            <option value="">Znamka</option>
+            <!-- Populate the options dynamically using PHP -->
+            <?php
+
+                // Query to retrieve brands from the "znamke" table
+                $query = "SELECT id, ime FROM znamke"; // Selecting id and ime columns
+                $stmt = $pdo->prepare($query);
+                $stmt->execute();
+                $brands = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($brands as $brand) {
+                    echo '<option value="' . $brand['id'] . '">' . $brand['ime'] . '</option>';
+                }
+  
+            ?>
+```
 
 Če želiš objaviti svoj oglas, se je potrebno registrirati, ali pa prijaviti z Googlom ali Facebookom.
 
