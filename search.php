@@ -140,7 +140,7 @@ WHERE 1=1";
     $stmt->execute();
 
     //count the rows
-    $count = $stmt->rowCount();
+    $count = $stmt->fetchColumn();
 
     if ($count > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -169,9 +169,9 @@ WHERE 1=1";
 
                         <?php 
                                     $query4 = "SELECT ime FROM goriva WHERE id = ?";
-                                    $stmt = $pdo->prepare($query4);
-                                    $stmt->execute([$gorivo_id]);
-                                    $gorivo = $stmt->fetch();?>
+                                    $stmt1 = $pdo->prepare($query4);
+                                    $stmt1->execute([$gorivo_id]);
+                                    $gorivo = $stmt1->fetch();?>
                         <td>
                             Letnik: <?php echo $letnik ?><br>
                             Prevoženih: <?php echo $km . " km" ?><br>
