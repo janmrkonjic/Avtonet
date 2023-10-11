@@ -83,12 +83,12 @@ include("connection.php");
     <header>
         <nav>
             <ul>
-                <li><a href="index.php">Domov</a></li>
-                <li><a href="oglasi.php">Oglasi</a></li>
-                <li><a href="login.php" class="button">Prijava</a></li>
-                <li><a href="register.php" class="button">Registracija</a></li>
-                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
-                <li><a href="logout.php">Odjava</a></li>
+                <li><a href="index.php">Domov</a>
+                <a href="oglasi.php">Oglasi</a>
+                <a href="login.php" class="button">Prijava</a>
+                <a href="register.php" class="button">Registracija</a>
+                <a href="oglas_add.php" class="button">Objavi Oglas</a>
+                <a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>

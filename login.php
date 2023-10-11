@@ -71,8 +71,13 @@ input {
     transform: translate(-50%, -50%);
 }
 
-a {
+.register {
     color: #007bff;
+}
+
+.domov {
+    color: #007bff;
+    float: right;
 }
 
 @media screen and (max-width = 600px)
@@ -92,19 +97,19 @@ a {
 </style>
 <body>
 <header>
-        <nav>
+<nav>
             <ul>
-                <li><a href="index.php">Domov</a></li>
-                <li><a href="oglasi.php">Oglasi</a></li>
-                <li><a href="login.php" class="button">Prijava</a></li>
-                <li><a href="register.php" class="button">Registracija</a></li>
-                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
-                <li><a href="logout.php">Odjava</a></li>
+                <li><a href="index.php">Domov</a>
+                <a href="oglasi.php">Oglasi</a>
+                <a href="login.php" class="button">Prijava</a>
+                <a href="register.php" class="button">Registracija</a>
+                <a href="oglas_add.php" class="button">Objavi Oglas</a>
+                <a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
     </header>
-    <div class="content"><br><br><br><br><br><br><br><br>
+    <div class="content"><br><br><br><br><br><br><br><br><br>
 
     <h2>Prijava</h2>
     <form method="post" action="login_process.php">
@@ -119,12 +124,12 @@ a {
 <br>
     <div style="text-align:center;">
     <a href="<?= Auth::get_google_login_url() ?>" class="btn">Google login</a><br><br>
-    <a href="<?= Auth::get_facebook_login_url() ?>" class="btn">Facebook login</a><br>
     <hr>Še nimate računa?
     <hr>
 </div>
     <br>
-    <a href="register.php">Registracija tukaj</a><br><br>
+    <a class="register" href="register.php">Registracija tukaj</a>
+    <a class="domov" href="index.php">Domov</a><br><br><br>
     </div>
     <br>
 </body>

@@ -6,7 +6,7 @@ include("connection.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>avto.net Clone</title>
+    <title>Oglas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
@@ -103,10 +103,18 @@ include("connection.php");
                 padding-left: 0px;
                 margin: 0 auto;
             }
-            .main img {
+            .slika {
+                float: none;
+                margin: 0 auto;
                 height: 50px;
                 width: 100px;
             }
+
+            img {
+            height:450px;
+            width: 570px;
+            }
+
             .cena {
                 font-size: 20px;
             }
@@ -123,14 +131,14 @@ include("connection.php");
     </style>
 <body>
     <header>
-        <nav>
+    <nav>
             <ul>
-                <li><a href="index.php">Domov</a></li>
-                <li><a href="oglasi.php">Oglasi</a></li>
-                <li><a href="login.php" class="button">Prijava</a></li>
-                <li><a href="register.php" class="button">Registracija</a></li>
-                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
-                <li><a href="logout.php">Odjava</a></li>
+                <li><a href="index.php">Domov</a>
+                <a href="oglasi.php">Oglasi</a>
+                <a href="login.php" class="button">Prijava</a>
+                <a href="register.php" class="button">Registracija</a>
+                <a href="oglas_add.php" class="button">Objavi Oglas</a>
+                <a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
@@ -140,7 +148,7 @@ include("connection.php");
         $query = "SELECT o.cena, o.km, o.letnik, b.ime AS barva_id,
          u.uporabnisko_ime AS uporabnik_id, g.ime AS gorivo_id,
           m.ime AS model_id, s.slika_url AS slika_id, z.ime AS znamka_id,
-          m.motor AS motor_id, m.menjalnik AS menjalnik_id
+          m.motor AS motor_id, m.menjalnik AS menjalnik_id, u.telefonska_st AS telefonska
         FROM oglasi AS o
         LEFT JOIN barve AS b ON o.barva_id = b.id
         LEFT JOIN uporabniki AS u ON o.uporabnik_id = u.id
@@ -167,6 +175,7 @@ include("connection.php");
             $znamka_id = $row["znamka_id"];
             $motor_id = $row["motor_id"];
             $menjalnik_id = $row["menjalnik_id"];
+            $telefonska = $row["telefonska"];
         }
     } else {
         echo "No records found";
@@ -213,6 +222,10 @@ include("connection.php");
             <tr>
                 <td class="bold">Uporabnik: </td>
                 <td><?php echo $uporabnik_id?></td>
+            </tr>
+            <tr>
+                <td class="bold">Telefonska številka: </td>
+                <td><a href="tel:<?php echo $telefonska?>"><?php echo $telefonska?></a></td>
             </tr>
             <tr>
                 <td class="cena">Cena: </td>

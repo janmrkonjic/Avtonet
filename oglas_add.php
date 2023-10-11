@@ -8,7 +8,7 @@ $user = check_login($pdo);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>avto.net Clone</title>
+    <title>Oglas add</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
@@ -80,14 +80,14 @@ $user = check_login($pdo);
     </style>
 <body>
     <header>
-        <nav>
+    <nav>
             <ul>
-                <li><a href="index.php">Domov</a></li>
-                <li><a href="oglasi.php">Oglasi</a></li>
-                <li><a href="login.php" class="button">Prijava</a></li>
-                <li><a href="register.php" class="button">Registracija</a></li>
-                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
-                <li><a href="logout.php">Odjava</a></li>
+                <li><a href="index.php">Domov</a>
+                <a href="oglasi.php">Oglasi</a>
+                <a href="login.php" class="button">Prijava</a>
+                <a href="register.php" class="button">Registracija</a>
+                <a href="oglas_add.php" class="button">Objavi Oglas</a>
+                <a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
@@ -169,12 +169,9 @@ $user = check_login($pdo);
             <option value="Črna">Črna</option>
             <option value="Srebrna">Srebrna</option>
             <option value="Modra">Modra</option>
-            <option value="Siva">Siva</option>
             <option value="Rumena">Rumena</option>
             <option value="Rdeča">Rdeča</option>
             <option value="Zelena">Zelena</option>
-            <option value="Roza">Roza</option>
-            <option value="Vijolična">Vijolična</option>
         </select>
 
 

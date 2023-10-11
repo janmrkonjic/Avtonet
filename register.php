@@ -70,26 +70,31 @@ input {
     transform: translate(-50%, -50%);
 }
 
-a {
+.login {
     color: #007bff;
+}
+
+.domov {
+    color: #007bff;
+    float: right;
 }
 
 </style>
 <body>
 <header>
-        <nav>
+<nav>
             <ul>
-                <li><a href="index.php">Domov</a></li>
-                <li><a href="oglasi.php">Oglasi</a></li>
-                <li><a href="login.php" class="button">Prijava</a></li>
-                <li><a href="register.php" class="button">Registracija</a></li>
-                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
-                <li><a href="logout.php">Odjava</a></li>
+                <li><a href="index.php">Domov</a>
+                <a href="oglasi.php">Oglasi</a>
+                <a href="login.php" class="button">Prijava</a>
+                <a href="register.php" class="button">Registracija</a>
+                <a href="oglas_add.php" class="button">Objavi Oglas</a>
+                <a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Fake Avto.net</h1>
     </header>
-    <div class="content"><br>
+    <div class="content"><br><br><br><br><br><br><br>
     <h2>Registracija</h2>
     <form method="post" action="register_process.php">
         <label for="uporabnisko_ime">Uporabnisko ime:</label>
@@ -97,6 +102,9 @@ a {
 
         <label for="email">Email:</label>
         <input type="email" name="email" required><br><br>
+        
+        <label for="telefonska_st">Telefonska številka:</label>
+        <input type="text" name="telefonska_st" required><br><br>
 
         <label for="geslo">Geslo:</label>
         <input type="password" name="geslo" required><br><br>
@@ -104,7 +112,8 @@ a {
         <input class="btn" type="submit" value="Registracija">
     </form>
     <br>
-    <a href="login.php">Prijava tukaj</a>
+    <a class="login" href="login.php">Prijava tukaj</a>
+    <a class="domov" href="index.php">Domov</a>
     </div>
 </body>
 

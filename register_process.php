@@ -11,6 +11,7 @@ try {
     // Get user input
     $uporabnisko_ime = $_POST['uporabnisko_ime'];
     $email = $_POST['email'];
+    $telefonska_st = $_POST['telefonska_st'];
     $raw_password = $_POST['geslo'];
 
     // Check if 'uporabnisko_ime' already exists
@@ -25,9 +26,9 @@ try {
         $hashed_password = password_hash($raw_password, PASSWORD_BCRYPT);
 
         // Insert user data into the database with hashed password using prepared statement
-        $insert_query = "INSERT INTO uporabniki (uporabnisko_ime, email, geslo) VALUES (?, ?, ?)";
+        $insert_query = "INSERT INTO uporabniki (uporabnisko_ime, email, telefonska_st, geslo) VALUES (?, ?, ?, ?)";
         $insert_stmt = $pdo->prepare($insert_query);
-        $insert_stmt->execute([$uporabnisko_ime, $email, $hashed_password]);
+        $insert_stmt->execute([$uporabnisko_ime, $email, $telefonska_st, $hashed_password]);
 
         echo "Registracija uspešna!";
 

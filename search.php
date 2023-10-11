@@ -1,5 +1,9 @@
 <?php
 include("connection.php");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +13,7 @@ include("connection.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
-    <title>Avto</title>
+    <title>Oglasi</title>
 </head>
 <style>
     body,
@@ -58,19 +62,19 @@ include("connection.php");
 
 <body>
     <header>
-        <nav>
+    <nav>
             <ul>
-                <li><a href="index.php">Domov</a></li>
-                <li><a href="oglasi.php">Oglasi</a></li>
-                <li><a href="login.php" class="button">Prijava</a></li>
-                <li><a href="register.php" class="button">Registracija</a></li>
-                <li><a href="oglas_add.php" class="button">Objavi Oglas</a></li>
-                <li><a href="logout.php">Odjava</a></li>
+                <li><a href="index.php">Domov</a>
+                <a href="oglasi.php">Oglasi</a>
+                <a href="login.php" class="button">Prijava</a>
+                <a href="register.php" class="button">Registracija</a>
+                <a href="oglas_add.php" class="button">Objavi Oglas</a>
+                <a href="logout.php">Odjava</a></li>
             </ul>
         </nav>
         <h1>Oglasi</h1>
     </header>
-
+    <br>
     <?php
 
     /*
@@ -140,10 +144,13 @@ WHERE 1=1";
     $stmt->execute();
 
     //count the rows
-    $count = $stmt->fetchColumn();
-
-    if ($count > 0) {
+    //$count = $stmt->fetchColumn();
+    //print_r("Count: " . $count);
+    if (1 > 0) {
+        
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //print_r($row);
+
             $id = $row['oglas_id'];
             $cena = $row["cena"];
             $km = $row["km"];
@@ -181,7 +188,7 @@ WHERE 1=1";
                     </tr>
                 </table>
             </div>
-
+            <br><br>
     <?php
 
         }
