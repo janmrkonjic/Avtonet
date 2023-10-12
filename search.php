@@ -1,6 +1,7 @@
 <?php
 include("connection.php");
-
+include('session.php'); 
+$user = check_login($pdo);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -66,10 +67,19 @@ error_reporting(E_ALL);
             <ul>
                 <li><a href="index.php">Domov</a>
                 <a href="oglasi.php">Oglasi</a>
-                <a href="login.php" class="button">Prijava</a>
-                <a href="register.php" class="button">Registracija</a>
                 <a href="oglas_add.php" class="button">Objavi Oglas</a>
-                <a href="logout.php">Odjava</a></li>
+                <?php
+        if (isset($_SESSION['user_id'])) {
+            // User is logged in, display appropriate links
+            echo '<a href="logout.php">Odjava</a>';
+        } else {
+            // User is not logged in, display login and registration links
+            echo '<a href="login.php" class="button">Prijava</a>';
+            echo '<a href="register.php" class="button">Registracija</a>';
+        }
+        ?>
+
+                </li>
             </ul>
         </nav>
         <h1>Oglasi</h1>
